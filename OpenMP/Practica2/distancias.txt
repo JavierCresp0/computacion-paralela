@@ -1,0 +1,3 @@
+Distancia euclidea entre el original y la media: 1626.947448
+Distancia euclidea entre el original y la media ponderada: 1432.394499
+El filtrado que modifico en mayor medida el histograma: MEDIA
