@@ -12,11 +12,11 @@ Cada práctica incluye un análisis de **eficiencia** y **speedup** comparando l
 ```
 MPI/
 ├── Practica1/   ← introducción a MPI: comunicación punto a punto
-└── Practica2/   ← problema sobre matriz de distancias
+└── Practica2/   ← filtrado de imágenes y comparación de histogramas
 
 OpenMP/
 ├── Practica1/   ← directivas básicas, paralelización de bucles
-└── Practica2/   ← problema sobre matriz de distancias
+└── Practica2/   ← filtrado de imágenes y comparación de histogramas
 ```
 
 Cada carpeta contiene:

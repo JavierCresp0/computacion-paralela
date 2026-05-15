@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
 		if(i == nproces-1) numFilas[i] += resto;
 	}
 	
-	/* Cada proceso ahora toma su porcion */
+	/* Cada proceso ahora toma su porción */
 	myFilas  = numFilas[myrank];
 	myIndice = numIndices[myrank];
 	printf("Soy el proceso %d y tengo %d filas; indice inicial %d\n", myrank, myFilas, myIndice);
@@ -120,8 +120,7 @@ int main(int argc, char *argv[]) {
 				MPI_Send(M[j], N, MPI_DOUBLE, i, 15, MPI_COMM_WORLD); 
 			}
 		}
-	}else{ 	
-		//printf("Soy el proceso %d y quiero mi matriz de tamaño %d X %d \n",myrank,myFilas,N);
+	}else{
 		for (i=0;i<myFilas;i++){
 			MPI_Recv(myMatriz[i],N,MPI_DOUBLE,0,15,MPI_COMM_WORLD,&status);			
 		}
@@ -177,7 +176,6 @@ int main(int argc, char *argv[]) {
 	
 	norma = sqrt(suma_global);
 	if (myrank == 0){
-		//printf("Norma x0 %.6g\n",norma);
 		vecNormas[0] = norma;
 	}
 	/* ----------------------------- */
@@ -235,7 +233,6 @@ int main(int argc, char *argv[]) {
 		/* norma  */
 		norma = sqrt(suma_global_xk1);
 		if (myrank == 0){
-			//printf("Norma x%d %.6g \n",k+1,norma);
 			vecNormas[k+1] = norma;
 		}
 		
@@ -294,8 +291,7 @@ int main(int argc, char *argv[]) {
 		MPI_Allreduce(&norma, &norma, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD); 
 		norma = sqrt(norma); 
 		if (myrank == 0){
-			//printf("Norma x%d %.6g \n",k+3,norma);	
-			vecNormas[k+3] = norma;	
+			vecNormas[k+3] = norma;
 		}
 		MPI_Allgatherv(xk1, myFilas, MPI_DOUBLE, xk, numFilas, numIndices, MPI_DOUBLE, MPI_COMM_WORLD);
 	}

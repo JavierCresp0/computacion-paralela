@@ -22,13 +22,12 @@ int main(int argc, char *argv[]) {
 	int myFilas, myIndice;
 	
 	/* leer parametro */
-	if(myrank == 0){
-		const char *infile = argv[1];
-	}
-		
+	const char *infile = argv[1];
+	FILE *f = NULL;
+
     /*Calcular tamaño  */
 	if(myrank == 0){
-		FILE *f = fopen(infile, "rb");
+		f = fopen(infile, "rb");
 		fseek(f, 0, SEEK_END);
 		long fsize = ftell(f);
 		rewind(f);
@@ -71,6 +70,8 @@ int main(int argc, char *argv[]) {
     MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
 	
 	/* Calculo numFilas y numIndices */
+	numFilas   = malloc(nproces * sizeof(int));
+	numIndices = malloc(nproces * sizeof(int));
 	base = N/nproces;
 	resto = N % nproces;
 	for(i=0;i<nproces;i++){
@@ -79,7 +80,7 @@ int main(int argc, char *argv[]) {
 		if(i == nproces-1) numFilas[i] += resto;
 	}
 	
-	/* Cada proceso ahora toma su porcion */
+	/* Cada proceso ahora toma su porción */
 	myFilas  = numFilas[myrank]+2;
 	myIndice = numIndices[myrank];
 	printf("Soy el proceso %d y tengo %d filas; indice inicial %d\n", myrank, myFilas, myIndice);
@@ -97,7 +98,7 @@ int main(int argc, char *argv[]) {
 		for (i = 1; i < nproces; i++) {
 			int start = numIndices[i];
 			int end   = start + numFilas[i]; 
-			printf("La matriz del proceso %d empieza en el indice %d start y termina en %d excluve (-1) \n",i,start,end);
+			printf("La matriz del proceso %d empieza en el indice %d start y termina en %d excluye (-1) \n",i,start,end);
 			for (j = start; j < end; j++) {
 				MPI_Send(orig[j], N, MPI_UNSIGNED_CHAR, i, 15, MPI_COMM_WORLD); 
 			}

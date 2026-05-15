@@ -8,7 +8,7 @@
 int main(int argc, char *argv[]) {
     
     if (argc < 3) {
-        printf("Uso: %s imagen.raw\n", argv[0]);
+        printf("Uso: %s imagen.raw nhilos\n", argv[0]);
         return 0;
     }
 	
@@ -170,9 +170,9 @@ int main(int argc, char *argv[]) {
     fprintf(fd, "Distancia euclidea entre el original y la media: %f\n", dist_mean);
     fprintf(fd, "Distancia euclidea entre el original y la media ponderada: %f\n", dist_wmean);
     if (dist_mean > dist_wmean){
-        fprintf(fd, "El filtrado que modifico en mayor medida el histograma: MEDIA\n");
+        fprintf(fd, "El filtrado que modificó en mayor medida el histograma: MEDIA\n");
     }else{
-        fprintf(fd, "El filtrado que modifico en mayor medida el histograma: MEDIA PONDERADA\n");
+        fprintf(fd, "El filtrado que modificó en mayor medida el histograma: MEDIA PONDERADA\n");
     }         
     fclose(fd);
 

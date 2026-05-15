@@ -85,7 +85,7 @@ int main(int argc, char *argv[]) {
 		if(i == nproces-1) numFilas[i] += resto;
 	}
 	
-	/* Cada proceso ahora toma su porcion */
+	/* Cada proceso ahora toma su porción */
 	myFilas  = numFilas[myrank]+2;
 	myIndice = numIndices[myrank];
 	outRows = myFilas - 2; 
@@ -255,9 +255,9 @@ int main(int argc, char *argv[]) {
 		fprintf(fd, "Distancia euclidea entre el original y la media: %f\n", dist_mean);
 		fprintf(fd, "Distancia euclidea entre el original y la media ponderada: %f\n", dist_wmean);
 		if (dist_mean > dist_wmean){
-			fprintf(fd, "El filtrado que modifico en mayor medida el histograma: MEDIA\n");
+			fprintf(fd, "El filtrado que modificó en mayor medida el histograma: MEDIA\n");
 		}else{
-			fprintf(fd, "El filtrado que modifico en mayor medida el histograma: MEDIA PONDERADA\n");
+			fprintf(fd, "El filtrado que modificó en mayor medida el histograma: MEDIA PONDERADA\n");
 		}         
 		fclose(fd);
 

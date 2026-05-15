@@ -101,8 +101,7 @@ int main(int argc, char *argv[]) {
 		{
 			vecNormas[0] = sqrt(total_sum);
 			norma = vecNormas[0];
-			//printf("norma[0] = %g\n", norma);
-			total_sum = 0.0; 
+			total_sum = 0.0;
 		}
 
 		/* Hacemos las primeras 3 iteraciones  */
@@ -136,7 +135,6 @@ int main(int argc, char *argv[]) {
 			{
 				norma = sqrt(total_sum);
 				vecNormas[k + 1] = norma;
-				//printf("norma[%d] = %g\n", k + 1, norma);
 				total_sum = 0.0;
 			}
 		}
@@ -199,7 +197,6 @@ int main(int argc, char *argv[]) {
             {
                 norma = sqrt(local_sum);
                 vecNormas[k+4] = norma;
-                //printf("norma[%d] = %g\n", k+4, norma);
             }
 		}
 	}
