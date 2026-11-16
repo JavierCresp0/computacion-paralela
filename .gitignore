@@ -4,3 +4,8 @@
 a.out
 Thumbs.db
 .DS_Store
+
+# Datos generados al ejecutar
+*.raw
+normas.txt
+matriz.bin
